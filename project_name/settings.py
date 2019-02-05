@@ -37,8 +37,6 @@ class Common(Configuration):
         'whitenoise.runserver_nostatic',
         'django.contrib.staticfiles',
         # TERCEROS
-
-        # '{{ project_name }}.users',
     ]
 
     MIDDLEWARE = [
