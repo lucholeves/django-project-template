@@ -1,3 +1,7 @@
 -r base.txt
 
 django-debug-toolbar==1.11
+
+# TESTS
+pytest-django==3.4.8
+mixer==6.1.3

@@ -19,6 +19,8 @@ class Common(Configuration):
     # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
     BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+    # DOTENV = os.path.join(BASE_DIR, '.env')
+
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = values.SecretValue()
 
@@ -37,6 +39,8 @@ class Common(Configuration):
         'whitenoise.runserver_nostatic',
         'django.contrib.staticfiles',
         # TERCEROS
+        # PROYECTO
+        'apps.users'
     ]
 
     MIDDLEWARE = [
@@ -72,9 +76,12 @@ class Common(Configuration):
 
     # Database
     # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue(
-        'sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
-    )
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
+    }
 
     # Password validation
     # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#auth-password-validators
@@ -113,7 +120,6 @@ class Common(Configuration):
 
     AUTH_USER_MODEL = 'users.User'
 
-
 class Development(Common):
     """
     The in-development settings and the default configuration.
@@ -124,7 +130,7 @@ class Development(Common):
 
     INSTALLED_APPS = Common.INSTALLED_APPS + [
         'debug_toolbar',
-    ]    
+    ]
 
     INTERNAL_IPS = [
         '127.0.0.1'
@@ -153,8 +159,15 @@ class Staging(Common):
     )
 
 
-class Production(Staging):
+class Production(Common):
     """
     The in-production settings.
+    """
+    pass
+
+
+class Testing(Common):
+    """
+    The in-testing settings.
     """
     pass
