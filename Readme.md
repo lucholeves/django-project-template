@@ -1,6 +1,6 @@
 # Template para proyectos Django 2.0+
 
-* Django<=2.2
+* Django<=2.3 (2.2 es la ultima version LTS a la fecha de creación de este repo)
 * Enviroment==2.1
 * django-pytest==3.4.8
 * Docker / docker-compose
@@ -22,5 +22,5 @@
 
 4. Podriamos correr el servidor Django de 2 maneras:
 
-   1. *docker-compose*: el proyecto viene con archivos con 2 ambientes: develop y production.
-   2. *manage.py*: podríamos correrlo dentro de un entorno virtual. Para esto deberiamos instalar los requerimientos (dentro de la carpeta requirements), y luego correr `python manage.py runserver`
+   1. **docker-compose**: el proyecto viene con archivos con 2 ambientes: develop y production.
+   2. **manage.py**: podríamos correrlo dentro de un entorno virtual. Para esto deberiamos instalar los requerimientos (dentro de la carpeta requirements), y luego correr `python manage.py runserver`
