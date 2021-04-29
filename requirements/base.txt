@@ -1,5 +1,0 @@
-Django<=2.3
-django-configurations==2.1
-
-# allows your web app to serve its own static files
-whitenoise==4.1.2

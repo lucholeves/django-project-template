@@ -1,12 +1,14 @@
-# Template para proyectos Django 2.0+
+# My Django 2.0+ template:
 
-* Django<=2.3 (2.2 es la ultima version LTS a la fecha de creación de este repo)
+This is my personal Django template, you should use it!
+
+* Django >= 2.1
 * Enviroment==2.1
 * django-pytest==3.4.8
 * Docker / docker-compose
 * python3
 
-## Como usarlo
+## How use it
 
 1. Primero debemos tener instalado una version de Django para poder correr el comando django-admin. Recomiendo crear un entorno virtual, instalar django con pip install Django y luego seguir al segundo paso.
 

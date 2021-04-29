@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: {{ project_name }}_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+
+  django: &django
+    container_name: {{ project_name }}_django
+    env_file: .env
+    build: 
+      context: .
+      dockerfile: docker/django/DockerFile
+    command: "/bin/bash"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true      
+
+volumes:
+  postgres_data:
